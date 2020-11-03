@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>📓Personal Note ✏️</title>
+</head>
+
+<body>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Noto+Sans+TC:wght@100&family=Noto+Serif+TC:wght@200&family=Open+Sans+Condensed&display=swap" rel="stylesheet">
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+  <script src="js/amazon-cognito-identity.min.js"></script>
+  <script src="js/config.js"></script>
+<script src="index.js"></script>
+
+
+  <div class="bg">
+    <h1 class="pageTitle">Your Personal Note</h1>
+    <h3 class="emailshow">This is
+      <span id="email_value"></span>'s personal note.  <button class="send_btn1" type="button" onclick="signOut();">Sign Out</button>
+    </h3>
+
+    <div class="showbox">
+      <div class="show" id="showInfoHere"></div>
+    </div>
+
+    <div class="inputbox">
+      <textarea id="text_input" class="text_input" value=" " name="text_input" placeholder="Write down your thoughts!"></textarea>
+
+      <div class="btnbox">
+        <button id="send_btn" class="send_btn1" type="button" onclick="createiiii();">Save</button><br>
+        <button class="send_btn2" type="button" onclick="speakText();">To Voice</button><br>
+        <button class="send_btn2" type="button" onclick="toPhoto();">To Album</button>
+      </div>
+
+    </div>
+    <div id="textToSynth">
+     <p id="result">Enter text above then click "To Voice"</p>
+     <audio id="audioPlayback" controls>
+       <source id="audioSource" type="audio/mp3" src="">
+     </audio>
+   </div>
+
+<script src="main.js"></script>
+
+</body>
+
+</html>

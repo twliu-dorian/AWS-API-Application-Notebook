@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="css/loginPageStyle.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Noto+Sans+TC:wght@100&family=Noto+Serif+TC:wght@200&family=Open+Sans+Condensed&display=swap" rel="stylesheet">
+
+	<!-- Javascript SDKs-->
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="js/amazon-cognito-auth.min.js"></script>
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+	<script src="js/amazon-cognito-identity.min.js"></script>
+	<script src="js/config.js"></script>
+
+  </head>
+  <body class="loginpage">
+    <img src="imgs/1.png" class="cognitopic">
+    <form>
+      <h1 class="logintitle">Sign in to start</h1>
+
+      <input class="logininput" type="text" id="inputUsername"  placeholder="Email address" name="username" required autofocus><br><br>
+      <input class="logininput" type="password" id="inputPassword"  placeholder="Password" name="password" required><br><br>
+      <button class="logininput" type="button" onclick="signInButton()">Sign in</button>
+      <p>Don't have an account yet? <button class="logininputsmall" type="button" onclick="toSignup()">Sign up</button></p>
+
+    </form>
+
+
+<script>
+
+  function signInButton() {
+
+	var authenticationData = {
+        Username : document.getElementById("inputUsername").value,
+        Password : document.getElementById("inputPassword").value,
+    };
+
+    var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
+
+	var poolData = {
+        UserPoolId : _config.cognito.userPoolId, // Your user pool id here
+        ClientId : _config.cognito.clientId, // Your client id here
+    };
+
+    var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
+    var userData = {
+        Username : document.getElementById("inputUsername").value,
+        Pool : userPool,
+    };
+
+    var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+
+	cognitoUser.authenticateUser(authenticationDetails, {
+        onSuccess: function (result) {
+			var accessToken = result.getAccessToken().getJwtToken();
+			console.log(accessToken);
+      window.location.href="index.html";
+        },
+
+        onFailure: function(err) {
+            alert(err.message || JSON.stringify(err));
+        },
+    });
+  }
+  function toSignup() {
+      window.location.href="register.html";
+  }
+
+</script>
+</body>
+</html>

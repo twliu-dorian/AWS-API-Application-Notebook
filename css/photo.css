@@ -1,0 +1,19 @@
+body{
+
+  background-color: #f1d1d1;
+  font-family: 'Oswald', "黑體-繁","微軟正黑體",'Open Sans Condensed', 'Dancing Script', 'Noto Sans TC', 'Noto Serif TC', serif, sans-serif;
+  text-align: center;
+
+}
+
+.app{
+  margin-left:30vmax;
+  margin-right:30vmax;
+  padding: 5vmax;
+  text-align: left;
+  background-color: white;
+}
+.pageTitle{
+  color: #333333;
+  font-size: 3vmax;
+}

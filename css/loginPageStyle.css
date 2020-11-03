@@ -1,0 +1,29 @@
+body{
+  background-color: #f6ab6c;
+  font-family: 'Oswald', "黑體-繁","微軟正黑體",'Open Sans Condensed', 'Dancing Script', 'Noto Sans TC', 'Noto Serif TC', serif, sans-serif;
+
+}
+
+.loginpage{
+  text-align: center;
+}
+
+.cognitopic{
+  width: 20rem;
+  margin-top: 5vmin;
+}
+.logintitle{
+  font-size: 3rem;
+  color: #333333;
+}
+
+.logininput{
+  opacity: 0.7;
+  font-family: 'Oswald';
+  font-size: 1.3rem;
+}
+
+.logininputsmall{
+  opacity: 0.7;
+  font-family: 'Oswald';
+}
